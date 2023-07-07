@@ -1,0 +1,114 @@
+---
+_schema-version: '3.1'
+ID: BTPServiceOverview
+version: 1.0.0
+description: "A simple CAP project."
+parameters:
+  enable-parallel-deployments: true
+build-parameters:
+  before-all:
+    - builder: custom
+      commands:
+        - npm ci
+        - npx -p @sap/cds-dk cds build --production
+        - npm run build:cf
+modules:
+  - name: BTPServiceOverview-srv
+    type: nodejs
+    path: gen/srv
+    parameters:
+      buildpack: nodejs_buildpack
+    build-parameters:
+      builder: npm-ci
+    provides:
+      - name: srv-api # required by consumers of CAP services (e.g. approuter)
+        properties:
+          srv-url: ${default-url}
+    requires:
+    - name: BTPServiceOverview-destination-service
+    - name: BTPServiceOverview-xsuaa-srv
+  - name: BTPServiceOverview-approuter
+    type: approuter.nodejs
+    path: approuter
+    requires:
+    - name: BTPServiceOverview_html_repo_runtime
+    - name: BTPServiceOverview-destination-service
+      group: destinations
+      properties:
+        forwardAuthToken: false
+        name: ui5
+        url: https://ui5.sap.com
+    parameters:
+      disk-quota: 256M
+      memory: 256M
+  - name: BTPServiceOverview_ui_deployer
+    type: com.sap.application.content
+    path: .
+    requires:
+    - name: BTPServiceOverview_html_repo_host
+      parameters:
+        content-target: true
+    build-parameters:
+      build-result: resources
+      requires:
+      - artifacts:
+        - recapcapadvancedprogrammingmodelbtpservices.zip
+        name: recapcapadvancedprogrammingmodelbtpservices
+        target-path: resources/
+  - name: recapcapadvancedprogrammingmodelbtpservices
+    type: html5
+    path: app/recap.capadvancedprogrammingmodel.btpservices
+    build-parameters:
+      build-result: dist
+      builder: custom
+      commands:
+      - npm install
+      - npm run build:cf
+      supported-platforms: []
+resources:
+  - name: BTPServiceOverview-xsuaa-srv
+    type: org.cloudfoundry.managed-service
+    parameters:
+      path: ./xs-security.json
+      service: xsuaa
+      service-plan: application
+      service-name: BTPServiceOverview-xsuaa-srv
+      config:
+        xsappname: ${space}-BTPServiceOverview
+  - name: BTPServiceOverview_html_repo_runtime
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: html5-apps-repo
+      service-plan: app-runtime
+  - name: BTPServiceOverview_html_repo_host
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: html5-apps-repo
+      service-plan: app-host
+  - name: BTPServiceOverview-destination-service
+    type: org.cloudfoundry.managed-service
+    parameters:
+      config:
+        HTML5Runtime_enabled: false
+        init_data:
+          instance:
+            destinations:
+            - Authentication: NoAuthentication
+              HTML5.DynamicDestination: true
+              HTML5.ForwardAuthToken: true
+              Name: btp-api
+              ProxyType: Internet
+              Type: HTTP
+              URL: ~{srv-api/srv-url}
+            - Authentication: NoAuthentication
+              Name: ui5
+              ProxyType: Internet
+              Type: HTTP
+              URL: https://ui5.sap.com
+            existing_destinations_policy: update
+        version: 1.0.0
+      service: destination
+      service-name: BTPServiceOverview-destination-service
+      service-plan: lite
+    requires:
+    - name: srv-api

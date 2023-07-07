@@ -1,0 +1,54 @@
+{
+    "requires": {
+      "[hybrid]": {
+        "db": {
+            "kind": "sqlite",
+            "credentials": {
+                "database": "db.sqlite"
+            }
+        },
+        "destinations": {
+          "binding": {
+            "type": "cf",
+            "apiEndpoint": "https://api.cf.eu10-004.hana.ondemand.com",
+            "org": "",
+            "space": "",
+            "instance": "dest-srv",
+            "key": "dest-srv-key",
+            "resolved": false
+          },
+          "kind": "destinations",
+          "vcap": {
+            "name": "destinations"
+          }
+        },
+        "auth": {
+          "kind": "basic",
+          "users": {
+            "admin": {
+              "password": "admin",
+              "ID": "admin",
+              "roles": [
+              ]
+            },
+            "*": false
+          }
+        },
+        "connectivity": {
+          "binding": {
+            "type": "cf",
+            "apiEndpoint": "https://api.cf.eu10-004.hana.ondemand.com",
+            "org": "",
+            "space": "",
+            "instance": "conn-srv",
+            "key": "conn-srv-key",
+            "resolved": false
+          },
+          "kind": "connectivity",
+          "vcap": {
+            "name": "connectivity"
+          }
+        }
+      }
+    }
+  }

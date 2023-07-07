@@ -1,0 +1,31 @@
+{
+  "name": "capadvancedprogrammingmodel",
+  "version": "1.0.0",
+  "description": "UI5 Application: capadvancedprogrammingmodel",
+  "author": "",
+  "license": "Apache-2.0",
+  "scripts": {
+    "build": "ui5 build --clean-dest",
+    "build:opt": "ui5 build self-contained --clean-dest --all",
+    "start": "ui5 serve --port 8080 -o index.html",
+    "start:dist": "ui5 serve  --port 8080 -o index.html --config ui5-dist.yaml",
+    "ts-typecheck": "tsc --noEmit",
+    "lint": "eslint webapp",
+    "test": "npm run lint"
+  },
+  "dependencies": {
+    "@ui5/cli":"^3.3.0",
+    "@ui5/logger":"^3.0.0",
+    "@ui5/fs":"^3.0.4"
+  },
+  "devDependencies": {
+    "@sap/ux-ui5-tooling": "^1.9.7",
+    "@sapui5/types": "1.114.0",
+    "@typescript-eslint/eslint-plugin": "^5.57.1",
+    "@typescript-eslint/parser": "^5.57.1",
+    "eslint": "^8.37.0",
+    "typescript": "^5.0.3",
+    "ui5-middleware-livereload": "^0.8.2",
+    "ui5-tooling-transpile": "^0.5.2"
+  }
+}

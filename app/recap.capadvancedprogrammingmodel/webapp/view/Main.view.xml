@@ -1,0 +1,27 @@
+<mvc:View
+	controllerName="recap.capadvancedprogrammingmodel.controller.Main"
+	displayBlock="true"
+	xmlns="sap.m"
+	xmlns:f="sap.f"
+	xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc">
+	<Page showHeader="false">
+		<content>
+			<VBox justifyContent="Center" alignItems="Center" width="100%" height="100%">
+				<Image src="../images/recap-2023-logo-small.png" width="10rem" class="sapUiTinyMarginBottom"/>
+				<Title text="» CAP Advanced Programming Model «" titleStyle="H1" class="fontSizeTitle"/>
+				<Title text="🕹️ re>≡CAP 2023 🕹️" titleStyle="H2" class="sapUiTinyMarginTop"/>
+				<f:AvatarGroup groupType="Individual" avatarDisplaySize="M" press="onSpeakerSelect" items="{path: '/speakers'}" class="sapUiSmallMarginTop">
+					<f:AvatarGroupItem initials="{initials}" fallbackIcon="{fallbackIcon}" src="{src}" tooltip= "{initials}"/>
+				</f:AvatarGroup>
+				<HBox class="sapUiSmallMarginTop">
+					<core:Icon src="sap-icon://SAP-icons-TNT/github" class="iconSize sapUiTinyMarginEnd"/>
+					<Link text="Repository" target="_blank" href="https://github.com/lemaiwo/BTPServiceOverview" class="fontSizeLink"/>
+					<core:Icon src="sap-icon://SAP-icons-TNT/github" class="iconSize sapUiTinyMarginBegin"/>
+				</HBox>
+				<Button text="BTP Services" class="sapUiSmallMarginTop fontSizeButton" press=".navigate2ServicesApp"/>
+				<IllustratedMessage illustrationType="tnt-Services" illustrationSize="Spot" enableDefaultTitleAndDescription="false" class="betweenSpotAndDot"/>
+			</VBox>
+		</content>
+	</Page>
+</mvc:View>

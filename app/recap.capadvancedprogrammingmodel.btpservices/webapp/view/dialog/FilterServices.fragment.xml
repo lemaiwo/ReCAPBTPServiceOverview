@@ -1,0 +1,19 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<SelectDialog
+		id="selectDialogSuppliersList"
+		noDataText="No Services Found"
+		title="Select Services"
+		search=".onSearch"
+		confirm=".onConfirm"
+		cancel=".onClose"
+		items="{btp>/services}"
+		multiSelect="true">
+		<StandardListItem
+			title="{btp>Name}"
+			iconDensityAware="false"
+			iconInset="false"
+			type="Active" />
+	</SelectDialog>
+</core:FragmentDefinition>

@@ -1,0 +1,36 @@
+<mvc:View
+	controllerName="recap.capadvancedprogrammingmodel.btpservices.controller.Main"
+	displayBlock="true"
+	xmlns="sap.m"
+	xmlns:t="sap.ui.table"
+	xmlns:mvc="sap.ui.core.mvc">
+	<Page title="{i18n>BusTechPlatServ}" titleAlignment="Center">
+		<content>
+            <t:Table id="genericTable" 
+                rows="{btp>/services}"
+                columns="{path:'btp>/columns',factory:'.createColumns'}"
+				fixedColumnCount="1"
+				visibleRowCount="25"
+				visibleRowCountMode="Auto"
+				selectionMode="None"
+				>
+				<t:extension>
+					<OverflowToolbar>
+						<ToolbarSpacer />
+						<Button icon="sap-icon://excel-attachment" press=".onExport"/>
+						<Button icon="sap-icon://filter" press=".onFilterTableServices" >
+							<layoutData>
+								<OverflowToolbarLayoutData priority="NeverOverflow" />
+							</layoutData>
+						</Button>
+						<Button icon="sap-icon://action-settings" press=".onTablePerso" >
+							<layoutData>
+								<OverflowToolbarLayoutData priority="NeverOverflow" />
+							</layoutData>
+						</Button>
+					</OverflowToolbar>
+				</t:extension>
+            </t:Table>
+		</content>
+	</Page>
+</mvc:View>

@@ -1,0 +1,7 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<BusyDialog
+		title="Loading BTP Services"
+		text="... To infinity and beyond! ..."/>
+</core:FragmentDefinition>

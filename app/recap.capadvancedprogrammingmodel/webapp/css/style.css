@@ -1,0 +1,32 @@
+.fontSizeTitle {
+    font-size: 4rem;
+}
+
+.fontSizeLink {
+    font-size: 1.5rem;
+}
+
+.iconSize{
+    font-size: 1.5rem;
+}
+
+.customTinyMarginTop {
+    margin-top: 0.3rem;
+}
+
+.fontSizeButton .sapMBtnInner {
+    font-size: 1.3rem;
+}
+
+.sapUiSizeCompact .sapMBtnInner .fontSizeButton{
+    height: 2rem;
+}
+
+.sapUiSizeCompact .sapMBtnContent .fontSizeButton{
+    line-height: 2rem;
+}
+
+.betweenSpotAndDot.sapMIllustratedMessage.sapMIllustratedMessage-Spot .sapMIllustration {
+    width: 5rem;
+    height: 5rem;
+}

@@ -1,0 +1,2 @@
+"use strict";sap.ui.define(["sap/ui/base/Object"],function(e){const t=e.extend("recap.capadvancedprogrammingmodel.btpservices.service.BTPServiceService",{constructor:function t(c){e.prototype.constructor.call(this);this.model=c},getBTPServices:async function e(){const t=this.model.bindContext(`/Services`);return await t.requestObject()}});return t});
+//# sourceMappingURL=BTPServiceService.js.map

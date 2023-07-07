@@ -1,0 +1,31 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:f="sap.f"
+	xmlns:core="sap.ui.core"
+	xmlns:l="sap.ui.layout">
+	<f:Card>
+		<f:content>
+			<l:VerticalLayout class="sapUiContentPadding">
+				<HBox alignItems="Center">
+					<f:Avatar src="{speakerData>/src}"
+							initials="{speakerData>/initials}"
+							tooltip="{speakerData>/initials}"
+							fallbackIcon="{speakerData>/fallbackIcon}"
+							backgroundColor="{speakerData>/backgroundColor}" />
+					<VBox class="sapUiTinyMarginBegin">
+						<Title text="{speakerData>/name}" />
+						<Text text="{speakerData>/jobPosition}" />
+					</VBox>
+				</HBox>
+				<Label text="Company" visible="{= ${speakerData>/company} ? true : false}"/>
+				<Text text="{speakerData>/company}" visible="{= ${speakerData>/company} ? true : false}"/>
+				<Label text="SAP Community" visible="{= ${speakerData>/scn} ? true : false}"/>
+				<Link text="{speakerData>/scn}" href="{speakerData>/scn}" target="_blank" visible="{= ${speakerData>/scn} ? true : false}"/>
+				<Label text="GitHub" visible="{= ${speakerData>/github} ? true : false}"/>
+				<Link text="{speakerData>/github}" href="{speakerData>/github}" target="_blank"/>
+				<Label text="Twitter" visible="{= ${speakerData>/twitter} ? true : false}"/>
+				<Text text="{speakerData>/twitter}" visible="{= ${speakerData>/twitter} ? true : false}"/>
+			</l:VerticalLayout>
+		</f:content>
+	</f:Card>
+</core:FragmentDefinition>

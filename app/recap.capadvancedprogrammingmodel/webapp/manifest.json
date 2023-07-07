@@ -1,0 +1,102 @@
+{
+	"_version": "1.12.0",
+	"sap.app": {
+		"id": "recap.capadvancedprogrammingmodel",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"applicationVersion": {
+			"version": "1.0.0"
+		}
+	},
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		}
+	},
+	"sap.ui5": {
+		"rootView": {
+			"viewName": "recap.capadvancedprogrammingmodel.view.App",
+			"type": "XML",
+			"async": true,
+			"id": "app"
+		},
+		"dependencies": {
+			"minUI5Version": "1.114.0",
+			"libs": {
+				"sap.ui.core": {},
+				"sap.ui.layout": {},
+				"sap.ui.unified": {},
+				"sap.m": {}
+			}
+		},
+		"handleValidation": true,
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "recap.capadvancedprogrammingmodel.i18n.i18n"
+				}
+			}
+		},
+		"resources": {
+			"css": [
+				{
+					"uri": "css/style.css"
+				}
+			]
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"viewPath": "recap.capadvancedprogrammingmodel.view",
+				"controlId": "app",
+				"controlAggregation": "pages",
+				"async": true
+			},
+			"routes": [
+				{
+					"pattern": "",
+					"name": "main",
+					"target": "main"
+				},
+				{
+                    "name": "btpServices",
+                    "pattern": "btpServices",
+                    "target": {
+                        "name": "btpServices",
+                        "prefix": "tns"
+                    }
+                }
+			],
+			"targets": {
+				"main": {
+					"viewId": "main",
+					"viewName": "Main"
+				},
+				"btpServices": {
+                    "type": "Component",
+                    "usage": "btpServicesComponent"
+                }
+			}
+		},
+		"componentUsages": {
+            "btpServicesComponent": {
+                "name": "recap.capadvancedprogrammingmodel.btpservices",
+                "settings": {},
+                "componentData": {},
+                "lazy": false
+            }
+		}
+	}
+}

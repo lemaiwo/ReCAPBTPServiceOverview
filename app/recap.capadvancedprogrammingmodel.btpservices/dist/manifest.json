@@ -1,0 +1,104 @@
+{
+	"_version": "1.12.0",
+	"sap.app": {
+		"id": "recap.capadvancedprogrammingmodel.btpservices",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"dataSources": {
+            "BTPService": {
+                "uri": "catalog/",
+                "type": "OData",
+                "settings": {
+                    "odataVersion": "4.0",
+                    "localUri": "localService/metadata.xml"
+                }
+            }
+		}
+	},
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		}
+	},
+	"sap.ui5": {
+		"rootView": {
+			"viewName": "recap.capadvancedprogrammingmodel.btpservices.view.App",
+			"type": "XML",
+			"async": true,
+			"id": "app"
+		},
+		"dependencies": {
+			"minUI5Version": "1.114.0",
+			"libs": {
+				"sap.ui.core": {},
+				"sap.ui.layout": {},
+				"sap.ui.unified": {},
+				"sap.m": {}
+			}
+		},
+		"handleValidation": true,
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "recap.capadvancedprogrammingmodel.btpservices.i18n.i18n"
+				}
+			},
+			"": {
+                "dataSource": "BTPService",
+                "type": "sap.ui.model.odata.v4.ODataModel",
+                "settings": {
+                    "earlyRequests": true,
+                    "operationMode": "Server",
+                    "synchronizationMode": "None",
+                    "sharedRequests": true
+                },
+                "preload": true
+            },
+			"btp": {
+				"dataSource": "BTPService",
+				"type": "recap.capadvancedprogrammingmodel.btpservices.state.BTPServiceState"
+			}
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"viewPath": "recap.capadvancedprogrammingmodel.btpservices.view",
+				"controlId": "app",
+				"controlAggregation": "pages",
+				"async": true
+			},
+			"routes": [
+				{
+					"pattern": "",
+					"name": "main",
+					"target": "main"
+				}
+			],
+			"targets": {
+				"main": {
+					"viewId": "main",
+					"viewName": "Main"
+				}
+			}
+		}
+	},
+	"sap.cloud": {
+		"public": true,
+		"service": "recap.capadvancedprogrammingmodel.btpservices"
+	}
+}
