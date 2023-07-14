@@ -31,7 +31,7 @@ export default class ServicesHandler extends BaseHandler {
         }
     
         const total = discoveryCenterResult.length;
-        discoveryCenterResult.splice(skip, top);
+        if(top<total)discoveryCenterResult.splice(skip, top);
         if (req.query.SELECT.count) discoveryCenterResult['$count'] = total;
         return discoveryCenterResult;
     }

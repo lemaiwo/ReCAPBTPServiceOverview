@@ -39,6 +39,12 @@
     "demo": "npm-run-all -p start:ui cds-ts:watch"
   },
   "cds": {
+    "query": {
+      "limit": {
+        "default": 5000,
+        "max": 5000
+      }
+    },
     "requires": {
       "auth": {
         "kind": "jwt",
