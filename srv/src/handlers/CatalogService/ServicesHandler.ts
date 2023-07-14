@@ -14,7 +14,6 @@ export default class ServicesHandler extends BaseHandler {
         this.cachedDiscoveryCenters = [];
     }
 
-
     protected async onRead(req: any,next:any,skip:number,top:number) {
         let discoveryCenterResult: IDiscoveryCenterList = [];
         if (this.cachedDiscoveryCenters.length > 0) {
@@ -35,7 +34,6 @@ export default class ServicesHandler extends BaseHandler {
         if (req.query.SELECT.count) discoveryCenterResult['$count'] = total;
         return discoveryCenterResult;
     }
-
     private async getBTPServices(): Promise<IDiscoveryCenterList> {
         this.discoveryCenterService = await this.getService(DiscoveryCenterService);
         let discoveryCenterResult: IDiscoveryCenterList = [];
