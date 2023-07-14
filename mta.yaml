@@ -9,7 +9,7 @@ build-parameters:
   before-all:
     - builder: custom
       commands:
-        - npm ci
+        - npm i
         - npx -p @sap/cds-dk cds build --production
         - npm run build:cf
 modules:
