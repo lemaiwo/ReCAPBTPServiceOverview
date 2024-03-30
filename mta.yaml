@@ -41,6 +41,8 @@ modules:
     parameters:
       disk-quota: 256M
       memory: 256M
+      routes:
+        - route: 'btp-services.wouter.lemaire.tech'
   - name: BTPServiceOverview_ui_deployer
     type: com.sap.application.content
     path: .
