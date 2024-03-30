@@ -1,5 +1,11 @@
 {
     "authenticationMethod": "none",
     "routes": [],
-    "welcomeFile": "/recapcapadvancedprogrammingmodelbtpservices"
+    "welcomeFile": "/index.html",
+    "routes": [
+      {
+        "source": "^/(.*)",
+        "target": "/recapcapadvancedprogrammingmodelbtpservices/$1",
+        "service": "html5-apps-repo-rt"
+      }]
   }
