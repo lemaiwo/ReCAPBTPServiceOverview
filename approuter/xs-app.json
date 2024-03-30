@@ -2,7 +2,12 @@
     "authenticationMethod": "none",
     "routes": [],
     "welcomeFile": "/index.html",
-    "routes": [
+    "routes": [ {
+        "authenticationType": "none",
+        "csrfProtection": false,
+        "source": "^/catalog/",
+        "destination": "btp-api"
+      },
      {
         "source": "^/(.*)",
         "target": "/recapcapadvancedprogrammingmodelbtpservices/$1",
