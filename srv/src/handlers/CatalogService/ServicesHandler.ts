@@ -1,14 +1,16 @@
-import BaseHandler from "../BaseHandler";
+import BaseHandler from "cds-plugin-handlers/core/BaseHandler";
 import DiscoveryCenterService from "../../services/DiscoveryCenterService";
 import { IDiscoveryCenterList } from "../../types/DiscoveryCenterService";
+import cds, { Service } from "@sap/cds";
+import BaseService from "cds-plugin-handlers/core/BaseService";
 
 export default class ServicesHandler extends BaseHandler {
 
     private discoveryCenterService!: DiscoveryCenterService;
     private cachedDiscoveryCenters: IDiscoveryCenterList;
 
-    constructor() {
-        super([
+    constructor(srv: Service) {
+        super(srv,[
             { event: 'on', type: 'READ' }
         ]);
         this.cachedDiscoveryCenters = [];
@@ -35,7 +37,7 @@ export default class ServicesHandler extends BaseHandler {
         return discoveryCenterResult;
     }
     private async getBTPServices(): Promise<IDiscoveryCenterList> {
-        this.discoveryCenterService = await this.getService(DiscoveryCenterService);
+        this.discoveryCenterService = await BaseService.getInstance(DiscoveryCenterService);
         let discoveryCenterResult: IDiscoveryCenterList = [];
         let discoveryCenter = await this.discoveryCenterService.getServices();
         const serviceDetailsResult = await this.discoveryCenterService.getAllServiceDetails(discoveryCenter);

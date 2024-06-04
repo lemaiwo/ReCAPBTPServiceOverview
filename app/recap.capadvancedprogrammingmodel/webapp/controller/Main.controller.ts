@@ -52,17 +52,6 @@ export default class Main extends BaseController {
 					scn: "https://people.sap.com/wouter.lemaire",
 					github: "https://github.com/lemaiwo",
 					twitter: "@wouter_lemaire"
-				}, {
-					initials: "GM",
-					name: "Gert Mertens",
-					tooltip: "3",
-					jobPosition: "Full stack SAP development consultant",
-					src: "https://avatars.githubusercontent.com/u/91686405?v=4",
-					fallbackIcon: "sap-icon://person-placeholder",
-					company: "Flexso",
-					scn: "https://people.sap.com/mertensgert",
-					github: "https://github.com/gertmertens92",
-					twitter: ""
 				}
 			]
 		}))

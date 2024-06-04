@@ -1,6 +1,6 @@
 
 import { IDiscoveryCenterEntity, IDiscoveryCenterServiceEntity } from '../types/DiscoveryCenterService';
-import BaseService from './BaseService';
+import BaseService from 'cds-plugin-handlers/core/BaseService';
 
 export default class DiscoveryCenterService extends BaseService {
 

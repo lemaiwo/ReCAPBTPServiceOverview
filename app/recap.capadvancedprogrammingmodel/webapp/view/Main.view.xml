@@ -10,7 +10,7 @@
 			<VBox justifyContent="Center" alignItems="Center" width="100%" height="100%">
 				<Image src="../images/recap-2023-logo-small.png" width="10rem" class="sapUiTinyMarginBottom"/>
 				<Title text="» CAP Advanced Programming Model «" titleStyle="H1" class="fontSizeTitle"/>
-				<Title text="🕹️ re>≡CAP 2023 🕹️" titleStyle="H2" class="sapUiTinyMarginTop"/>
+				<Title text="🕹️ re>≡CAP 2024 🕹️" titleStyle="H2" class="sapUiTinyMarginTop"/>
 				<f:AvatarGroup groupType="Individual" avatarDisplaySize="M" press="onSpeakerSelect" items="{path: '/speakers'}" class="sapUiSmallMarginTop">
 					<f:AvatarGroupItem initials="{initials}" fallbackIcon="{fallbackIcon}" src="{src}" tooltip= "{initials}"/>
 				</f:AvatarGroup>
