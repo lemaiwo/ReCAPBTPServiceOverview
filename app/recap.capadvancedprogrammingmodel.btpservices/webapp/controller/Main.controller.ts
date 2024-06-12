@@ -59,7 +59,7 @@ export default class Main extends BaseController {
 	public createColumns(id: string, context: Context): Column {
 		const column = (context.getObject() as column)
 		const list = new VerticalLayout();
-		const infoLabel = new InfoLabel({ text: `{btp>name}`, colorScheme: 6 });
+		const infoLabel = new InfoLabel({ text: `{btp>name}`, colorScheme: "{= ${btp>name} === 'free'  ? 8 : 6 }" });
 		list.bindAggregation("content", { path: `${column.id}Plans`, model: 'btp', template: infoLabel, templateShareable: true })
 		return new Column({
 			label: column.name,
